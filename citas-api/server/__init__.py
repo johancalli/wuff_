@@ -77,7 +77,7 @@ def create_app(test_config=None):
                 
             elif conflicto == False:
                 response_object['success'] = True
-                response_object['message'] = '¡Cita Programada!'
+                response_object['message'] = 'Cita Programada'
 
                 data = Citas(fecha,hora,paseador,distrito,direccion,metodo_pago,current_user.id)
 
@@ -114,7 +114,7 @@ def create_app(test_config=None):
             return jsonify(response_object)
         else:
             response_object['success'] = True
-            response_object['message'] = '¡Cita Remplazada!'
+            response_object['message'] = 'Cita Remplazada'
 
             cita = current_user.citas[cita_id] #acceder a la cita con su id
             
@@ -133,7 +133,7 @@ def create_app(test_config=None):
     @token_required
     def delete_cita(current_user,cita_id):
 
-        response_object = {'success':True, 'message':'¡Cita eliminada!'}
+        response_object = {'success':True, 'message':'Cita eliminada'}
 
         db.session.delete(current_user.citas[cita_id])
         db.session.commit()
